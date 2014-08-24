@@ -6,6 +6,8 @@
  * Copyright (c) 2014, Distributed under the Eclipse Public License, the same as Clojure.
  *
 */
+import com.kojavaee.command.Command;
+import com.kojavaee.command.HelloPrintCommand;
 import com.kojavaee.observer.HiObserver;
 import com.kojavaee.observer.Subject;
 
@@ -23,5 +25,9 @@ public class Main {
 		System.out.println("Observer : ");
 		Subject subject = new Subject().attach(new HiObserver());
 		subject.notifyObservers();
+		
+		System.out.println("Command : ");
+		Command command = new HelloPrintCommand();
+		command.execute();
 	}
 }
