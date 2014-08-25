@@ -1,3 +1,4 @@
+package com.kojavaee;
 /**
  * Project Name:design
  * File Name   :Main.java
@@ -8,6 +9,9 @@
 */
 import com.kojavaee.command.Command;
 import com.kojavaee.command.HelloPrintCommand;
+import com.kojavaee.event.GuideEvent;
+import com.kojavaee.event.GuideEventListener;
+import com.kojavaee.event.GuideEventSourceObject;
 import com.kojavaee.observer.HiObserver;
 import com.kojavaee.observer.Subject;
 
@@ -29,5 +33,14 @@ public class Main {
 		System.out.println("Command : ");
 		Command command = new HelloPrintCommand();
 		command.execute();
+		
+		System.out.println("Event : ");
+		GuideEventSourceObject obj = new GuideEventSourceObject();
+		obj.addGuideListener(new GuideEventListener() {
+			public void fireGuideEvent(GuideEvent e) {
+				super.fireGuideEvent(e);
+			}
+		});
+		obj.setName("hei hei");
 	}
 }
